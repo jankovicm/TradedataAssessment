@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TradedataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CapitalCity">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="Country_Id" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="300" />
+    <Property Name="Country" Type="nvarchar" MaxLength="300" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Tradedata.dbo.CityCode' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CityCode">
+          <Property Name="Id" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" />
+        </EntityType>-->
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Country" Type="nvarchar" MaxLength="300" />
+    <Property Name="A2_Iso" Type="nvarchar" MaxLength="300" />
+    <Property Name="A3_Un" Type="nvarchar" MaxLength="300" />
+    <Property Name="Num_Un" Type="nvarchar" MaxLength="300" />
+    <Property Name="DialingCode" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Weather">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="City_Id" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="WindSpeed" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WindDirection" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Sunrise" Type="bigint" />
+    <Property Name="Sunset" Type="bigint" />
+    <Property Name="Temperature" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Pressure" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Humidity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TempMin" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TempMax" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Cloudiness" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="fk_CapitalCity_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="CapitalCity" Type="Self.CapitalCity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CapitalCity">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Weather_CapitalCity">
+    <End Role="CapitalCity" Type="Self.CapitalCity" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Weather" Type="Self.Weather" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CapitalCity">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Weather">
+        <PropertyRef Name="City_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TradedataModelStoreContainer">
+    <EntitySet Name="CapitalCity" EntityType="Self.CapitalCity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Weather" EntityType="Self.Weather" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_CapitalCity_Country" Association="Self.fk_CapitalCity_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="CapitalCity" EntitySet="CapitalCity" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Weather_CapitalCity" Association="Self.fk_Weather_CapitalCity">
+      <End Role="CapitalCity" EntitySet="CapitalCity" />
+      <End Role="Weather" EntitySet="Weather" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

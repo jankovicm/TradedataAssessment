@@ -1,0 +1,41 @@
+﻿.searchBox .button {
+	margin: 0;
+}
+
+.searchBox p {
+	margin-top: 0;
+}
+
+.searchBox {
+	background-color: #BBC5C5;
+    margin: -15px 0 15px;
+    padding: 10px;
+	border-bottom: 2px solid #717A77;
+}
+
+.searchBox label {
+	margin-right: 10px;
+}
+.searchBox input[type="text"] {
+    border-color: #aaa;
+}
+
+.searchBox select {
+	border-color: #aaa;
+	width: 200px;
+}
+
+.section .searchBox form {
+    margin: 0;
+}
+
+.section h2 {
+	font-size: 1.8em;
+	margin: 0 0 15px;
+	line-height: 40px;
+	border-bottom: 2px solid #222;
+}
+
+.temperature {
+    width: 50px;
+}

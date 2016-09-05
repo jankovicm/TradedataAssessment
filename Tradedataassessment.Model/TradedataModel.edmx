@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TradedataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CapitalCity">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="Country_Id" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="Country" Type="nvarchar" MaxLength="300" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Tradedata.dbo.CityCode' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CityCode">
+          <Property Name="Id" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" />
+        </EntityType>-->
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="300" />
+          <Property Name="A2_Iso" Type="nvarchar" MaxLength="300" />
+          <Property Name="A3_Un" Type="nvarchar" MaxLength="300" />
+          <Property Name="Num_Un" Type="nvarchar" MaxLength="300" />
+          <Property Name="DialingCode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Weather">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City_Id" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="WindSpeed" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WindDirection" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Sunrise" Type="bigint" />
+          <Property Name="Sunset" Type="bigint" />
+          <Property Name="Temperature" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Pressure" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Humidity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TempMin" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TempMax" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Cloudiness" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <Association Name="fk_CapitalCity_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="CapitalCity" Type="Self.CapitalCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CapitalCity">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Weather_CapitalCity">
+          <End Role="CapitalCity" Type="Self.CapitalCity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Weather" Type="Self.Weather" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CapitalCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Weather">
+              <PropertyRef Name="City_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TradedataModelStoreContainer">
+          <EntitySet Name="CapitalCity" EntityType="Self.CapitalCity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Weather" EntityType="Self.Weather" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_CapitalCity_Country" Association="Self.fk_CapitalCity_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="CapitalCity" EntitySet="CapitalCity" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Weather_CapitalCity" Association="Self.fk_Weather_CapitalCity">
+            <End Role="CapitalCity" EntitySet="CapitalCity" />
+            <End Role="Weather" EntitySet="Weather" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TradedataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TradedataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CapitalCity" EntityType="TradedataModel.CapitalCity" />
+          <EntitySet Name="Country" EntityType="TradedataModel.Country" />
+          <EntitySet Name="Weather" EntityType="TradedataModel.Weather" />
+          <AssociationSet Name="fk_CapitalCity_Country" Association="TradedataModel.fk_CapitalCity_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="CapitalCity" EntitySet="CapitalCity" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Weather_CapitalCity" Association="TradedataModel.fk_Weather_CapitalCity">
+            <End Role="CapitalCity" EntitySet="CapitalCity" />
+            <End Role="Weather" EntitySet="Weather" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CapitalCity">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="Country_Id" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Country1" Relationship="TradedataModel.fk_CapitalCity_Country" FromRole="CapitalCity" ToRole="Country" />
+          <NavigationProperty Name="Weather" Relationship="TradedataModel.fk_Weather_CapitalCity" FromRole="CapitalCity" ToRole="Weather" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="A2_Iso" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="A3_Un" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Num_Un" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="DialingCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CapitalCity" Relationship="TradedataModel.fk_CapitalCity_Country" FromRole="Country" ToRole="CapitalCity" />
+        </EntityType>
+        <EntityType Name="Weather">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City_Id" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WindSpeed" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WindDirection" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Sunrise" Type="Int64" />
+          <Property Name="Sunset" Type="Int64" />
+          <Property Name="Temperature" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Pressure" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Humidity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TempMin" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TempMax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Cloudiness" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="CapitalCity" Relationship="TradedataModel.fk_Weather_CapitalCity" FromRole="Weather" ToRole="CapitalCity" />
+        </EntityType>
+        <Association Name="fk_CapitalCity_Country">
+          <End Type="TradedataModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="TradedataModel.CapitalCity" Role="CapitalCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CapitalCity">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Weather_CapitalCity">
+          <End Type="TradedataModel.CapitalCity" Role="CapitalCity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TradedataModel.Weather" Role="Weather" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CapitalCity">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Weather">
+              <PropertyRef Name="City_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TradedataModelStoreContainer" CdmEntityContainer="TradedataEntities">
+          <EntitySetMapping Name="CapitalCity">
+            <EntityTypeMapping TypeName="TradedataModel.CapitalCity">
+              <MappingFragment StoreEntitySet="CapitalCity">
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="TradedataModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="DialingCode" ColumnName="DialingCode" />
+                <ScalarProperty Name="Num_Un" ColumnName="Num_Un" />
+                <ScalarProperty Name="A3_Un" ColumnName="A3_Un" />
+                <ScalarProperty Name="A2_Iso" ColumnName="A2_Iso" />
+                <ScalarProperty Name="Country1" ColumnName="Country" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Weather">
+            <EntityTypeMapping TypeName="TradedataModel.Weather">
+              <MappingFragment StoreEntitySet="Weather">
+                <ScalarProperty Name="Cloudiness" ColumnName="Cloudiness" />
+                <ScalarProperty Name="TempMax" ColumnName="TempMax" />
+                <ScalarProperty Name="TempMin" ColumnName="TempMin" />
+                <ScalarProperty Name="Humidity" ColumnName="Humidity" />
+                <ScalarProperty Name="Pressure" ColumnName="Pressure" />
+                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+                <ScalarProperty Name="Sunset" ColumnName="Sunset" />
+                <ScalarProperty Name="Sunrise" ColumnName="Sunrise" />
+                <ScalarProperty Name="WindDirection" ColumnName="WindDirection" />
+                <ScalarProperty Name="WindSpeed" ColumnName="WindSpeed" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="City_Id" ColumnName="City_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

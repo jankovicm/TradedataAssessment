@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradedataAssessment", "TradedataAssessment\TradedataAssessment.csproj", "{D7EF8A9D-B275-498F-BDAE-0076B6D5D091}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradedataAssessment.Common", "TradedataAssessment.Common\TradedataAssessment.Common.csproj", "{6B838E58-AD59-4531-B533-F918A7AC4CD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradedataAssessment.Data", "TradedataAssessment.Data\TradedataAssessment.Data.csproj", "{970517E8-84D5-482D-B95A-1DC6A9C0DC19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradedataAssessment.Init", "TradedataAssessment.Init\TradedataAssessment.Init.csproj", "{5C43D224-6CA4-4AD1-99BA-22AC95AF8500}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tradedataassessment.Model", "Tradedataassessment.Model\Tradedataassessment.Model.csproj", "{348F5434-18F1-43F6-83E0-FE0A30899E8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradedataAssessment.Model.Contracts", "TradedataAssessment.Model.Contracts\TradedataAssessment.Model.Contracts.csproj", "{F0CE8A9B-82F9-423F-8AA7-429BD8AA368A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradedataAssessment.Service", "TradedataAssessment.Service\TradedataAssessment.Service.csproj", "{7C90756D-B500-467E-8D9A-DDC8280D6982}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7EF8A9D-B275-498F-BDAE-0076B6D5D091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7EF8A9D-B275-498F-BDAE-0076B6D5D091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7EF8A9D-B275-498F-BDAE-0076B6D5D091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7EF8A9D-B275-498F-BDAE-0076B6D5D091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B838E58-AD59-4531-B533-F918A7AC4CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B838E58-AD59-4531-B533-F918A7AC4CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B838E58-AD59-4531-B533-F918A7AC4CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B838E58-AD59-4531-B533-F918A7AC4CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{970517E8-84D5-482D-B95A-1DC6A9C0DC19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{970517E8-84D5-482D-B95A-1DC6A9C0DC19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{970517E8-84D5-482D-B95A-1DC6A9C0DC19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{970517E8-84D5-482D-B95A-1DC6A9C0DC19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C43D224-6CA4-4AD1-99BA-22AC95AF8500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C43D224-6CA4-4AD1-99BA-22AC95AF8500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C43D224-6CA4-4AD1-99BA-22AC95AF8500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C43D224-6CA4-4AD1-99BA-22AC95AF8500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{348F5434-18F1-43F6-83E0-FE0A30899E8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{348F5434-18F1-43F6-83E0-FE0A30899E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{348F5434-18F1-43F6-83E0-FE0A30899E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{348F5434-18F1-43F6-83E0-FE0A30899E8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0CE8A9B-82F9-423F-8AA7-429BD8AA368A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0CE8A9B-82F9-423F-8AA7-429BD8AA368A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0CE8A9B-82F9-423F-8AA7-429BD8AA368A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0CE8A9B-82F9-423F-8AA7-429BD8AA368A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C90756D-B500-467E-8D9A-DDC8280D6982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C90756D-B500-467E-8D9A-DDC8280D6982}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C90756D-B500-467E-8D9A-DDC8280D6982}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C90756D-B500-467E-8D9A-DDC8280D6982}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

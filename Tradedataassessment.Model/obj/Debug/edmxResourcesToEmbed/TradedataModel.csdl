@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TradedataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TradedataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CapitalCity" EntityType="TradedataModel.CapitalCity" />
+    <EntitySet Name="Country" EntityType="TradedataModel.Country" />
+    <EntitySet Name="Weather" EntityType="TradedataModel.Weather" />
+    <AssociationSet Name="fk_CapitalCity_Country" Association="TradedataModel.fk_CapitalCity_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="CapitalCity" EntitySet="CapitalCity" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Weather_CapitalCity" Association="TradedataModel.fk_Weather_CapitalCity">
+      <End Role="CapitalCity" EntitySet="CapitalCity" />
+      <End Role="Weather" EntitySet="Weather" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CapitalCity">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="Country_Id" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Country1" Relationship="TradedataModel.fk_CapitalCity_Country" FromRole="CapitalCity" ToRole="Country" />
+    <NavigationProperty Name="Weather" Relationship="TradedataModel.fk_Weather_CapitalCity" FromRole="CapitalCity" ToRole="Weather" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Country1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="A2_Iso" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="A3_Un" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Num_Un" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="DialingCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CapitalCity" Relationship="TradedataModel.fk_CapitalCity_Country" FromRole="Country" ToRole="CapitalCity" />
+  </EntityType>
+  <EntityType Name="Weather">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="City_Id" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="WindSpeed" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="WindDirection" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Sunrise" Type="Int64" />
+    <Property Name="Sunset" Type="Int64" />
+    <Property Name="Temperature" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Pressure" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Humidity" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TempMin" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TempMax" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Cloudiness" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="CapitalCity" Relationship="TradedataModel.fk_Weather_CapitalCity" FromRole="Weather" ToRole="CapitalCity" />
+  </EntityType>
+  <Association Name="fk_CapitalCity_Country">
+    <End Type="TradedataModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="TradedataModel.CapitalCity" Role="CapitalCity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CapitalCity">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Weather_CapitalCity">
+    <End Type="TradedataModel.CapitalCity" Role="CapitalCity" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="TradedataModel.Weather" Role="Weather" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CapitalCity">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Weather">
+        <PropertyRef Name="City_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

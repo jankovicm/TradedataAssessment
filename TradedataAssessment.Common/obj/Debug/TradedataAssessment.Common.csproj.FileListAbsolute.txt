@@ -1,0 +1,5 @@
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Common\bin\Debug\TradedataAssessment.Common.dll
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Common\bin\Debug\TradedataAssessment.Common.pdb
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Common\obj\Debug\TradedataAssessment.Common.dll
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Common\obj\Debug\TradedataAssessment.Common.pdb
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Common\obj\Debug\TradedataAssessment.Common.csprojResolveAssemblyReference.cache

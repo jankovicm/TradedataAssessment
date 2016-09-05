@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TradedataModelStoreContainer" CdmEntityContainer="TradedataEntities">
+    <EntitySetMapping Name="CapitalCity">
+      <EntityTypeMapping TypeName="TradedataModel.CapitalCity">
+        <MappingFragment StoreEntitySet="CapitalCity">
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="TradedataModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="DialingCode" ColumnName="DialingCode" />
+          <ScalarProperty Name="Num_Un" ColumnName="Num_Un" />
+          <ScalarProperty Name="A3_Un" ColumnName="A3_Un" />
+          <ScalarProperty Name="A2_Iso" ColumnName="A2_Iso" />
+          <ScalarProperty Name="Country1" ColumnName="Country" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weather">
+      <EntityTypeMapping TypeName="TradedataModel.Weather">
+        <MappingFragment StoreEntitySet="Weather">
+          <ScalarProperty Name="Cloudiness" ColumnName="Cloudiness" />
+          <ScalarProperty Name="TempMax" ColumnName="TempMax" />
+          <ScalarProperty Name="TempMin" ColumnName="TempMin" />
+          <ScalarProperty Name="Humidity" ColumnName="Humidity" />
+          <ScalarProperty Name="Pressure" ColumnName="Pressure" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Sunset" ColumnName="Sunset" />
+          <ScalarProperty Name="Sunrise" ColumnName="Sunrise" />
+          <ScalarProperty Name="WindDirection" ColumnName="WindDirection" />
+          <ScalarProperty Name="WindSpeed" ColumnName="WindSpeed" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="City_Id" ColumnName="City_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

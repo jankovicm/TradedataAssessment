@@ -1,0 +1,29 @@
+﻿@using TradedataAssessment.Code
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Tradedata Assessment</h1>
+    <p class="lead">The simple program can be either web or windows. If you opt for web and you want to use a
+            frontend JavaScript framework then fine but the data access layer must be C#.</p>
+    <p><a href="https://www.euromoneytradedata.com/" target="_blank" class="btn btn-primary btn-lg">GoTo Euromoney Tradedata &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Get data through Weather Api</h2>
+        <p>
+            Our mission is to make geo data open and available through easy to use cloud products and APIs to inspire new innovative 
+            applications with imagery, weather data, and other data feeds that are instantly available for you. A lot of new features are coming soon.
+            We use high-end Big Data IT technologies to automatically process billions of data points every second providing you 
+            with RGB and NVDI images, cloudless maps, interactive weather maps and many other products.
+        </p>
+        <p><a class="btn btn-default" href="@Url.GetWeatherData()">Pull data &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>View weather data</h2>
+        <p>View and analyze weather data.</p>
+        <p><a class="btn btn-default" href="@Url.ViewWeatherData()">Weather data &raquo;</a></p>
+    </div>
+</div>

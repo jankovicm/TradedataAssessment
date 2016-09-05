@@ -1,0 +1,16 @@
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\bin\Debug\TradedataAssessment.Service.dll.config
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\bin\Debug\TradedataAssessment.Service.dll
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\bin\Debug\TradedataAssessment.Service.pdb
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\bin\Debug\EntityFramework.dll
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\bin\Debug\TradedataAssessment.Data.dll
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\bin\Debug\TradedataAssessment.Model.Contracts.dll
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\bin\Debug\Tradedataassessment.Model.dll
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\bin\Debug\TradedataAssessment.Data.pdb
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\bin\Debug\TradedataAssessment.Model.Contracts.pdb
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\bin\Debug\Tradedataassessment.Model.pdb
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\bin\Debug\EntityFramework.xml
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\obj\Debug\TradedataAssessment.Service.csprojResolveAssemblyReference.cache
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\obj\Debug\TradedataAssessment.Service.dll
+C:\Projekti\TradedataAssessment\TradedataAssessment\TradedataAssessment.Service\obj\Debug\TradedataAssessment.Service.pdb

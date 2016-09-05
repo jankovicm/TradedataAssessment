@@ -1,0 +1,54 @@
+﻿@using GridMvc.Html
+@model TradedataAssessment.Models.WeatherResultsModel
+
+@{
+    ViewBag.Title = "Weather Data";
+}
+
+<div class="section">
+
+    <h2>Weather data</h2>
+
+    <div class="searchBox">
+        @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "form-inline" }))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Date)
+                @Html.TextBoxFor(model => model.Date)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CityName)
+                @Html.TextBoxFor(model => model.CityName)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TemperatureFrom)
+                @Html.TextBoxFor(model => model.TemperatureFrom, new { @class = "temperature" })
+                @Html.LabelFor(model => model.TemperatureTo)
+                @Html.TextBoxFor(model => model.TemperatureTo, new { @class = "temperature" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SunriseFrom)
+                @Html.TextBoxFor(model => model.SunriseFrom, new { @class = "temperature" })
+                @Html.LabelFor(model => model.SunriseTo)
+                @Html.TextBoxFor(model => model.SunriseTo, new { @class = "temperature" })
+            </div>
+
+            <input type="submit" value="Search" class="btn btn-primary" />
+        }
+    </div>
+
+    @Html.Grid(Model.Results).Named("WeatherData").Columns(columns =>
+    {
+        columns.Add(x => x.CityCountry).Titled("City (Country)").Filterable(true).Sortable(true);
+        columns.Add(x => x.Date).Titled("Date").Filterable(true).Sortable(true);
+        columns.Add(x => x.Temperature).Titled("Temperature").Filterable(true).Sortable(true);
+        columns.Add(x => x.WindSpeed).Titled("Wind speed").Filterable(true).Sortable(true);
+        columns.Add(x => x.WindDirection).Titled("Wind direction").Filterable(true).Sortable(true);
+        columns.Add(x => x.Pressure).Titled("Pressure").Filterable(true).Sortable(true);
+        columns.Add(x => x.SunriseFormatted).Titled("Sunrise").Filterable(true).Sortable(true);
+        columns.Add(x => x.SunsetFormatted).Titled("Sunset").Filterable(true).Sortable(true);
+    }).WithPaging(15)
+</div>
