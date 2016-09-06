@@ -251,6 +251,7 @@
     </Content>
     <Content Include="Content\json\CityList.json" />
     <Content Include="Grid.mvc.readme" />
+    <Content Include="Database\TradedataTestApi.bak" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />
